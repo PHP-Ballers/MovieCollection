@@ -1,5 +1,6 @@
 <?php
 require_once '../model/database.php';
+require_once '../model/movie_db.php';
 
 $action = filter_input(INPUT_GET, 'action');
 if ($action == NULL) {
