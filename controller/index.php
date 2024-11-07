@@ -7,6 +7,7 @@ if ($action == NULL) {
 }
 
 if ($action == 'movie_list') {
+    $movies = get_movie_list();
     include '../view/movie_list.php';
 }
 

@@ -10,4 +10,8 @@
 
 <header><h1>Movie Collection</h1></header>
 
+<body>
+<p><?php  echo $movie_list['SERIES_TITLE'];?> </p>
+</body>
+
 </html>
