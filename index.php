@@ -1,3 +1,12 @@
-<?php
-    header("Location: ./controller?action=movie_list");
-?>
+
+<?php include 'view/header.php'; ?>
+
+<main>
+    <p>Use the following link to start the movie application:</p>
+    <ul>
+
+        <li><a href="controller?action=movie_list">Movie Collection</a></li>
+    </ul>
+</main>
+<?php include 'view/footer.php'; ?>
+
