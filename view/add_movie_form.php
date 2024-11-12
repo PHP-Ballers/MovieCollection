@@ -8,55 +8,52 @@
         <input type="hidden" name="action" value="add_movie">
 
         <label>Poster Link</label>
-        <input type="text" name="link"><br>
+        <input type="text" name="poster_link"><br>
 
         <label>Series Title</label>
-        <input type="text" name="name"><br>
+        <input type="text" name="series_title"><br>
 
         <label>Released Year</label>
-        <input type="number" name="year"><br>
+        <input type="number" name="released_year"><br>
 
         <label>Certificate</label>
         <input type="text" name="certificate"><br>
 
         <label>Runtime (minutes)</label>
-        <input type="text" name="runtime"><br>
+        <input type="number" name="runtime"><br>
 
         <label>Genre</label>
         <input type="text" name="genre"><br>
 
         <label>IMDB Rating</label>
-        <input type="number" name="IMDBrating"><br>
+        <input type="number" name="imdb_rating"><br>
 
         <label>Overview</label>
         <input type="text" name="overview"><br>
 
         <label>Meta Score</label>
-        <input type="number" name="METAscore"><br>
+        <input type="number" name="meta_score"><br>
 
         <label>Director</label>
-        <input type="text" name="name"><br>
+        <input type="text" name="director"><br>
 
         <label>Star 1</label>
-        <input type="text" name="name"><br>
+        <input type="text" name="star1"><br>
 
         <label>Star 2</label>
-        <input type="text" name="name"><br>
+        <input type="text" name="star2"><br>
 
         <label>Star 3</label>
-        <input type="text" name="name"><br>
+        <input type="text" name="star3"><br>
 
         <label>Star 4</label>
-        <input type="text" name="name"><br>
+        <input type="text" name="star4"><br>
 
         <label>Number Of Votes</label>
-        <input type="number" name="votes"><br>
+        <input type="number" name="no_of_votes"><br>
 
         <label>Gross</label>
         <input type="number" name="gross"><br>
-
-        <label>ID</label>
-        <input type="number" name="id"><br>
 
         <label> </label>
         <input type="submit" value="Add Movie"><br>
