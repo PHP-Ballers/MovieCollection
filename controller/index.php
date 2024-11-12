@@ -9,6 +9,19 @@ if ($action == NULL) {
 
 if ($action == 'movie_list') {
     $movies = get_movie_list();
+    $page = filter_input(INPUT_GET, 'page'); 
+    if(!$page) {
+        $page = filter_input(INPUT_POST, 'page'); 
+    }
+
+    if (!$page) {
+        $page = '1'; #initialize to 1 if there is no current page
+    }
+
+
+    $limited_pages = paginate_movie_list(); #get movie_list in chunks for easier readability
+    $total_pages = calculate_total_pages(); #get value for total number of pages for iteration in 'movie_list.php'
+
     include '../view/movie_list.php';
 }
 else if ($action == 'show_add_movie_form') {
