@@ -2,6 +2,10 @@
 
 
 
+<header><h1>Movies</h1></header>
+<main>
+
+
 
     <table>
         <th>SERIES_TITLE</th>
@@ -26,6 +30,8 @@
             </tr>
         <?php endforeach; ?>
     </table>
+  <p><a href="index.php?action=show_add_movie_form">Add Movie</a></p>
+</main>
 
 
 
