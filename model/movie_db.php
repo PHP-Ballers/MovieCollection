@@ -20,7 +20,7 @@ $overview, $meta_score, $director, $star1, $star2, $star3, $star4, $no_of_votes,
                  OVERVIEW, META_SCORE, DIRECTOR, STAR1, STAR2, STAR3, STAR4, NO_OF_VOTES, GROSS, ID)
                  VALUES(:poster_link, :series_title, :released_year, :certificate, :runtime, :genre, 
                         :imdb_rating, :overview, :meta_score, :director, :star1, :star2, :star3, 
-                        :star4, :no_of_votes, :gross. :id)';
+                        :star4, :no_of_votes, :gross, :id)';
     $statement = $db->prepare($query);
     $statement->bindValue(':poster_link', $poster_link);
     $statement->bindValue(':series_title', $series_title);
