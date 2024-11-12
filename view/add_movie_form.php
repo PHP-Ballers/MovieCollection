@@ -55,9 +55,6 @@
         <label>Gross</label>
         <input type="number" name="gross"><br>
 
-        <label>ID</label>
-        <input type="number" name="id"><br>
-
         <label> </label>
         <input type="submit" value="Add Movie"><br>
     </form>
