@@ -101,6 +101,65 @@ text-align: right;
 .last_paragraph {
 margin-bottom: 2em;
 }
+
+/**************************************************
+* Additional styles for tables
+**************************************************/
+.table-dark {
+    width: 100%;
+    border-collapse: collapse;
+    color: #f2f2f2;
+    background-color: #333;
+}
+
+.table-dark th, .table-dark td {
+    border: 1px solid #444;
+    text-align: left;
+    padding: 8px;
+}
+
+.table-dark tr:nth-child(even) {
+    background-color: #444;
+}
+
+.table-dark th {
+    background-color: #555;
+    color: #f2f2f2;
+}
+
+/**************************************************
+* Styles for pagination links
+**************************************************/
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding: 10px;
+}
+
+.pagination a {
+    color: #007BFF;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.pagination a.active {
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.pagination span {
+    padding: 10px 15px;
+    color: #999;
+}
+
 /********************************************************************
 * Additional styles for the Product Manager application
 ********************************************************************/
