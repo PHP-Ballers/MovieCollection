@@ -60,7 +60,11 @@
         <label> </label>
         <input type="submit" value="Update Movie"><br>
     </form>
+<<<<<<< Updated upstream
     <p><a href="?action=movie_list">View Movie Collection</a></p>
+=======
+    <p><a href="?action=movie_list_manager">View Movie Collection</a></p>
+>>>>>>> Stashed changes
 </main>
 </body>
 <?php include 'footer.php'; ?>

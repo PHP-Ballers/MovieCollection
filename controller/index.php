@@ -7,7 +7,7 @@ if ($action == NULL) {
     $action = filter_input(INPUT_POST, 'action');
 }
 
-if ($action == 'movie_list') {
+if ($action == 'movie_list_manager') {
     $movies = get_movie_list();
     $page = filter_input(INPUT_GET, 'page'); 
     if(!$page) {
@@ -22,7 +22,11 @@ if ($action == 'movie_list') {
     $limited_pages = paginate_movie_list(); #get movie_list in chunks for easier readability
     $total_pages = calculate_total_pages(); #get value for total number of pages for iteration in 'movie_list.php'
 
+<<<<<<< Updated upstream
     include '../view/movie_list.php';
+=======
+    include '../view/movie_list_manager.php';
+>>>>>>> Stashed changes
 }
 else if ($action == 'show_add_movie_form') {
     include '../view/add_movie_form.php';
@@ -49,12 +53,20 @@ else if ($action == 'add_movie') {
    add_movie($poster_link, $series_title, $released_year, $certificate, $runtime, $genre, $imdb_rating, $overview,
       $meta_score, $director, $star1, $star2, $star3, $star4, $no_of_votes, $gross, $id);
 //   header("Location: .?action=movie_list&id=$id");
+<<<<<<< Updated upstream
    header("Location: .?action=movie_list");
+=======
+   header("Location: .?action=movie_list_manager");
+>>>>>>> Stashed changes
 }
 else if ($action == 'delete_movie') {
     $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
     delete_movie($id);
+<<<<<<< Updated upstream
     header("Location: .?action=movie_list");
+=======
+    header("Location: .?action=movie_list_manager");
+>>>>>>> Stashed changes
 }
 else if ($action == 'show_edit_movie') {
     $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
@@ -79,11 +91,37 @@ else if ($action == 'edit_movie') {
     $no_of_votes = filter_input(INPUT_POST, 'no_of_votes', FILTER_VALIDATE_INT);
     $gross = filter_input(INPUT_POST, 'gross', FILTER_VALIDATE_INT);
     $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+<<<<<<< Updated upstream
+=======
 
     edit_movie($poster_link, $series_title, $released_year, $certificate, $runtime, $genre, $imdb_rating,
             $overview, $meta_score, $director, $star1, $star2, $star3, $star4, $no_of_votes, $gross, $id);
 
+    header("Location: .?action=movie_list_manager");
+}
+else if ($action == 'movie_list_viewer') {
+    $movies = get_movie_list();
+    $page = filter_input(INPUT_GET, 'page'); 
+    if(!$page) {
+        $page = filter_input(INPUT_POST, 'page'); 
+    }
+
+    if (!$page) {
+        $page = '1'; #initialize to 1 if there is no current page
+    }
+>>>>>>> Stashed changes
+
+    edit_movie($poster_link, $series_title, $released_year, $certificate, $runtime, $genre, $imdb_rating,
+            $overview, $meta_score, $director, $star1, $star2, $star3, $star4, $no_of_votes, $gross, $id);
+
+<<<<<<< Updated upstream
     header("Location: .?action=movie_list");
+=======
+    $limited_pages = paginate_movie_list(); #get movie_list in chunks for easier readability
+    $total_pages = calculate_total_pages(); #get value for total number of pages for iteration in 'movie_list.php'
+
+    include '../view/movie_list_viewer.php';
+>>>>>>> Stashed changes
 }
 
 ?>

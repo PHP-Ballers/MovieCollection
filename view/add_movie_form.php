@@ -58,7 +58,7 @@
         <label> </label>
         <input type="submit" value="Add Movie"><br>
     </form>
-    <p><a href="?action=movie_list">View Movie Collection</a></p>
+    <p><a href="?action=movie_list_manager">View Movie Collection</a></p>
 </main>
 </body>
 <?php include 'footer.php'; ?>
