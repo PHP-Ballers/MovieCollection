@@ -1,50 +1,74 @@
 /* the styles for the html elements */
 html {
-background-color: rgb(192, 192, 192);
+    background-color: #222; /* Dark background for the entire page */
 }
+
 body {
-margin-top: 0;
-font-family: Arial, Helvetica, sans-serif;
-width: 1000px;
-margin: 0 auto;
-background-color: white;
-border: 1px solid black;
-padding: .5em 2em;
+    margin-top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 1000px;
+    margin: 0 auto;
+    background-color: #333; /* Dark background for the body */
+    color: #f2f2f2; /* Light text for readability */
+    border: 1px solid #444; /* Dark border around the body */
+    padding: .5em 2em;
 }
+
 header {
-margin: 0;
-border-bottom: 2px solid black;
+    margin: 0;
+    border-bottom: 2px solid #444; /* Darker border for header */
 }
+
 header h1 {
-margin: 0;
-padding: .5em 0;
-color: black;
+    margin: 0;
+    padding: .5em 0;
+    color: #f2f2f2; /* Light text color for the header */
 }
+
 main {
-margin: 0;
+    margin: 0;
+    color: #f2f2f2; /* Ensure main text is readable */
 }
+
 aside {
-float: left;
-width: 150px;
+    float: left;
+    width: 150px;
+    background-color: #444; /* Dark background for the sidebar */
+    color: #f2f2f2; /* Light text color for sidebar */
+    padding: 10px;
+    border-radius: 5px;
 }
+
 nav ul {
-list-style-type: none;
-margin-left: 0;
-padding-left: 0;
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
 }
+
 nav ul li {
-padding-bottom: 0.5em;
+    padding-bottom: 0.5em;
 }
+
 section {
-float: left;
-width: 500px;
-padding-bottom: 1.5em;
+    float: left;
+    width: 500px;
+    padding-bottom: 1.5em;
+    background-color: #444; /* Dark background for the main content section */
+    color: #f2f2f2; /* Light text color for the section */
+    padding: 15px;
+    border-radius: 5px;
 }
+
 footer {
-clear: both;
-margin-top: 1em;
-border-top: 2px solid black;
+    clear: both;
+    margin-top: 1em;
+    border-top: 2px solid #444; /* Dark border for footer */
+    background-color: #333; /* Dark footer background */
+    color: #f2f2f2; /* Light text color for the footer */
+    padding: 10px;
+    text-align: center;
 }
+
 footer p {
 text-align: right;
 font-size: 80%;
@@ -71,23 +95,50 @@ li {
 margin: 0;
 padding: 0;
 }
+/* Style for all hyperlinks */
 a {
-color: rgb(41, 64, 124);
-font-weight: bold;
-}
+    color: #FFA500; /* Orange color */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  /* Hover state for hyperlinks */
 a:hover {
-color: rgb(208, 133, 4);
+    color: #FF8C00; /* Darker orange for hover effect */
+    text-decoration: underline; /* Add underline on hover */
+  }
+  
+  /* Active state for hyperlinks */
+a:active {
+    color: #FF7F00; /* Slightly different orange when the link is active */
+  }
+  
+  /* Visited state for hyperlinks */
+a:visited {
+    color: #FFB84D; /* Lighter orange for visited links */
+  }
+  .table-dark {
+    width: 100%;
+    border-collapse: collapse;
+    color: #f2f2f2;
+    background-color: #333;
 }
-table {
-border: 1px solid black;
-border-collapse: collapse;
+
+.table-dark th, .table-dark td {
+    border: 2px solid #000000; /* Thicker black border */
+    outline: 1px solid #000000; /* Optional: add outline for stronger definition */
+    text-align: left;
+    padding: 8px;
 }
-td, th {
-border: 1px dashed black;
-padding: .2em .5em .2em .5em;
-vertical-align: top;
-text-align: left;
+
+.table-dark tr:nth-child(even) {
+    background-color: #000000;
 }
+
+.table-dark th {
+    background-color: #555;
+    color: #f2f2f2;
+}
+
 form {
 margin: 0;
 }
@@ -101,6 +152,85 @@ text-align: right;
 .last_paragraph {
 margin-bottom: 2em;
 }
+
+/**************************************************
+* Additional styles for tables
+**************************************************/
+.table-dark {
+    width: 100%;
+    border-collapse: collapse;
+    color: #f2f2f2;
+    background-color: #333;
+}
+
+.table-dark th, .table-dark td {
+    border: 1px solid #444;
+    text-align: left;
+    padding: 8px;
+}
+
+.table-dark tr:nth-child(even) {
+    background-color: #444;
+}
+
+.table-dark th {
+    background-color: #555;
+    color: #f2f2f2;
+}
+
+/**************************************************
+* Styles for pagination links
+**************************************************/
+/* Base styles for the pagination container */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding: 10px;
+}
+
+/* Pagination link styles */
+.pagination a {
+    color: #f2f2f2; /* Light text for dark theme */
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #444; /* Darker border */
+    border-radius: 5px;
+    background-color: #333; /* Dark background */
+    transition: all 0.3s; /* Smooth transition */
+}
+
+/* Hover effect for pagination links */
+.pagination a:hover {
+    background-color: #555; /* Lighter dark background on hover */
+    color: #fff; /* White text on hover */
+}
+
+/* Active page styles */
+.pagination a.active {
+    background-color: #007BFF; /* Bright blue for active page */
+    color: white; /* White text */
+    font-weight: bold; /* Bold active page number */
+    pointer-events: none; /* Disable interaction on active link */
+}
+
+/* Disabled state for pagination (e.g., "previous" and "next" on first/last page) */
+.pagination span {
+    padding: 10px 15px;
+    color: #777; /* Muted color for disabled state */
+    background-color: #222; /* Darker background for disabled links */
+    border: 1px solid #444; /* Dark border for disabled state */
+}
+
+/* Focus state for accessibility */
+.pagination a:focus {
+    outline: 2px solid #555; /* Light outline for focused links */
+    outline-offset: 2px;
+}
+
+
 /********************************************************************
 * Additional styles for the Product Manager application
 ********************************************************************/
