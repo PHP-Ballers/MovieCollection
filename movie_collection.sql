@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2024 at 10:08 PM
+-- Generation Time: Nov 17, 2024 at 09:00 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,10 +24,48 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `1000_movies`
+-- Table structure for table `genres`
 --
 
-CREATE TABLE `1000_movies` (
+CREATE TABLE `genres` (
+  `GENRE_ID` int(11) NOT NULL,
+  `GENRE_NAME` varchar(28) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `genres`
+--
+
+INSERT INTO `genres` (`GENRE_ID`, `GENRE_NAME`) VALUES
+(1, 'Action'),
+(2, 'Adventure'),
+(3, 'Animation'),
+(4, 'Biography'),
+(5, 'Comedy'),
+(6, 'Crime'),
+(7, 'Drama'),
+(8, 'Family'),
+(9, 'Fantasy'),
+(10, 'Film-Noir'),
+(11, 'History'),
+(12, 'Horror'),
+(13, 'Music'),
+(14, 'Musical'),
+(15, 'Mystery'),
+(16, 'Romance'),
+(17, 'Sci-Fi'),
+(18, 'Sport'),
+(19, 'Thriller'),
+(20, 'War'),
+(21, 'Western');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `movies`
+--
+
+CREATE TABLE `movies` (
   `POSTER_LINK` varchar(161) DEFAULT NULL,
   `SERIES_TITLE` varchar(68) DEFAULT NULL,
   `RELEASED_YEAR` varchar(13) DEFAULT NULL,
@@ -48,11 +86,11 @@ CREATE TABLE `1000_movies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `1000_movies`
+-- Dumping data for table `movies`
 --
 
-INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
-('https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX67_CR0,0,67,98_AL_.jpg', 'The Shawshank Redemption', '1994', 'A', '142 min', 'Drama', '9.3', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', '80', 'Frank Darabont', 'Tim Robbins', 'Morgan Freeman', 'Bob Gunton', 'William Sadler', '2343110', '28,341,469', 1),
+INSERT INTO `movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
+('https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX67_CR0,0,67,98_AL_.jpg', 'The Shawshank Redemption', '1994', 'A', '142 min', 'Drama', '9.3', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', '80', 'Frank Darabont', 'Tim Robbins', 'Morgan Freeman', 'Bob Gunton', 'William Sadler', '2343110', '', 1),
 ('https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY98_CR1,0,67,98_AL_.jpg', 'The Godfather', '1972', 'A', '175 min', 'Crime, Drama', '9.2', 'An organized crime dynasty\'s aging patriarch transfers control of his clandestine empire to his reluctant son.', '100', 'Francis Ford Coppola', 'Marlon Brando', 'Al Pacino', 'James Caan', 'Diane Keaton', '1620367', '134,966,411', 2),
 ('https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX67_CR0,0,67,98_AL_.jpg', 'The Dark Knight', '2008', 'UA', '152 min', 'Action, Crime, Drama', '9', 'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.', '84', 'Christopher Nolan', 'Christian Bale', 'Heath Ledger', 'Aaron Eckhart', 'Michael Caine', '2303232', '534,858,444', 3),
 ('https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY98_CR1,0,67,98_AL_.jpg', 'The Godfather: Part II', '1974', 'A', '202 min', 'Crime, Drama', '9', 'The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.', '90', 'Francis Ford Coppola', 'Al Pacino', 'Robert De Niro', 'Robert Duvall', 'Diane Keaton', '1129952', '57,300,000', 4),
@@ -72,7 +110,7 @@ INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERT
 ('https://m.media-amazon.com/images/M/MV5BZjA0OWVhOTAtYWQxNi00YzNhLWI4ZjYtNjFjZTEyYjJlNDVlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX67_CR0,0,67,98_AL_.jpg', 'One Flew Over the Cuckoo\'s Nest', '1975', 'A', '133 min', 'Drama', '8.7', 'A criminal pleads insanity and is admitted to a mental institution, where he rebels against the oppressive nurse and rallies up the scared patients.', '83', 'Milos Forman', 'Jack Nicholson', 'Louise Fletcher', 'Michael Berryman', 'Peter Brocco', '918088', '112,000,000', 18),
 ('https://m.media-amazon.com/images/M/MV5BNjViNWRjYWEtZTI0NC00N2E3LTk0NGQtMjY4NTM3OGNkZjY0XkEyXkFqcGdeQXVyMjUxMTY3ODM@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Hamilton', '2020', 'PG-13', '160 min', 'Biography, Drama, History', '8.6', 'The real life of one of America\'s foremost founding fathers and first Secretary of the Treasury, Alexander Hamilton. Captured live on Broadway from the Richard Rodgers Theater with the original Broadway cast.', '90', 'Thomas Kail', 'Lin-Manuel Miranda', 'Phillipa Soo', 'Leslie Odom Jr.', 'Renée Elise Goldsberry', '55291', '', 19),
 ('https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Gisaengchung', '2019', 'A', '132 min', 'Comedy, Drama, Thriller', '8.6', 'Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.', '96', 'Bong Joon Ho', 'Kang-ho Song', 'Lee Sun-kyun', 'Cho Yeo-jeong', 'Choi Woo-sik', '552778', '53,367,844', 20),
-('https://m.media-amazon.com/images/M/MV5BOTc2ZTlmYmItMDBhYS00YmMzLWI4ZjAtMTI5YTBjOTFiMGEwXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_UY98_CR0,0,67,98_AL_.jpg', 'Soorarai Pottru', '2020', 'U', '153 min', 'Drama', '8.6', 'Nedumaaran Rajangam \"Maara\" sets out to make the common man fly and in the process takes on the world\'s most capital intensive industry and several enemies who stand in his way.', '', 'Sudha Kongara', 'Suriya', 'Madhavan', 'Paresh Rawal', 'Aparna Balamurali', '54995', '', 21),
+('https://m.media-amazon.com/images/M/MV5BOTc2ZTlmYmItMDBhYS00YmMzLWI4ZjAtMTI5YTBjOTFiMGEwXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_UY98_CR0,0,67,98_AL_.jpg', 'Soorarai Pottru', '2020', 'U', '153 min', 'Drama', '8.6', 'Nedumaaran Rajangam ', '', 'Sudha Kongara', 'Suriya', 'Madhavan', 'Paresh Rawal', 'Aparna Balamurali', '54995', '', 21),
 ('https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Interstellar', '2014', 'UA', '169 min', 'Adventure, Drama, Sci-Fi', '8.6', 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity\'s survival.', '74', 'Christopher Nolan', 'Matthew McConaughey', 'Anne Hathaway', 'Jessica Chastain', 'Mackenzie Foy', '1512360', '188,020,017', 22),
 ('https://m.media-amazon.com/images/M/MV5BOTMwYjc5ZmItYTFjZC00ZGQ3LTlkNTMtMjZiNTZlMWQzNzI5XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Cidade de Deus', '2002', 'A', '130 min', 'Crime, Drama', '8.6', 'In the slums of Rio, two kids\' paths diverge as one struggles to become a photographer and the other a kingpin.', '79', 'Fernando Meirelles', 'Kátia Lund', 'Alexandre Rodrigues', 'Leandro Firmino', 'Matheus Nachtergaele', '699256', '7,563,397', 23),
 ('https://m.media-amazon.com/images/M/MV5BMjlmZmI5MDctNDE2YS00YWE0LWE5ZWItZDBhYWQ0NTcxNWRhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Sen to Chihiro no kamikakushi', '2001', 'U', '125 min', 'Animation, Adventure, Family', '8.6', 'During her family\'s move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.', '96', 'Hayao Miyazaki', 'Daveigh Chase', 'Suzanne Pleshette', 'Miyu Irino', 'Rumi Hiiragi', '651376', '10,055,859', 24),
@@ -152,7 +190,7 @@ INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERT
 ('https://m.media-amazon.com/images/M/MV5BOTdiNzJlOWUtNWMwNS00NmFlLWI0YTEtZmI3YjIzZWUyY2Y3XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Requiem for a Dream', '2000', 'A', '102 min', 'Drama', '8.3', 'The drug-induced utopias of four Coney Island people are shattered when their addictions run deep.', '68', 'Darren Aronofsky', 'Ellen Burstyn', 'Jared Leto', 'Jennifer Connelly', 'Marlon Wayans', '766870', '3,635,482', 98),
 ('https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX67_CR0,0,67,98_AL_.jpg', 'American Beauty', '1999', 'UA', '122 min', 'Drama', '8.3', 'A sexually frustrated suburban father has a mid-life crisis after becoming infatuated with his daughter\'s best friend.', '84', 'Sam Mendes', 'Kevin Spacey', 'Annette Bening', 'Thora Birch', 'Wes Bentley', '1069738', '130,096,601', 99),
 ('https://m.media-amazon.com/images/M/MV5BOTI0MzcxMTYtZDVkMy00NjY1LTgyMTYtZmUxN2M3NmQ2NWJhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Good Will Hunting', '1997', 'U', '126 min', 'Drama, Romance', '8.3', 'Will Hunting, a janitor at M.I.T., has a gift for mathematics, but needs help from a psychologist to find direction in his life.', '70', 'Gus Van Sant', 'Robin Williams', 'Matt Damon', 'Ben Affleck', 'Stellan Skarsgård', '861606', '138,433,435', 100);
-INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
+INSERT INTO `movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
 ('https://m.media-amazon.com/images/M/MV5BZTYwZWQ4ZTQtZWU0MS00N2YwLWEzMDItZWFkZWY0MWVjODVhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Bacheha-Ye aseman', '1997', 'PG', '89 min', 'Drama, Family, Sport', '8.3', 'After a boy loses his sister\'s pair of shoes, he goes on a series of adventures in order to find them. When he can\'t, he tries a new way to \"win\" a new pair.', '77', 'Majid Majidi', 'Mohammad Amir Naji', 'Amir Farrokh Hashemian', 'Bahare Seddiqi', 'Nafise Jafar-Mohammadi', '65341', '933,933', 101),
 ('https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Toy Story', '1995', 'U', '81 min', 'Animation, Adventure, Comedy', '8.3', 'A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy\'s room.', '95', 'John Lasseter', 'Tom Hanks', 'Tim Allen', 'Don Rickles', 'Jim Varney', '887429', '191,796,233', 102),
 ('https://m.media-amazon.com/images/M/MV5BMzkzMmU0YTYtOWM3My00YzBmLWI0YzctOGYyNTkwMWE5MTJkXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Braveheart', '1995', 'A', '178 min', 'Biography, Drama, History', '8.3', 'Scottish warrior William Wallace leads his countrymen in a rebellion to free his homeland from the tyranny of King Edward I of England.', '68', 'Mel Gibson', 'Mel Gibson', 'Sophie Marceau', 'Patrick McGoohan', 'Angus Macfadyen', '959181', '75,600,000', 103),
@@ -256,7 +294,7 @@ INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERT
 ('https://m.media-amazon.com/images/M/MV5BMGI3YWFmNDQtNjc0Ny00ZDBjLThlNjYtZTc1ZTk5MzU2YTVjXkEyXkFqcGdeQXVyNzA4ODc3ODU@._V1_UY98_CR1,0,67,98_AL_.jpg', 'Mommy', '2014', 'R', '139 min', 'Drama', '8.1', 'A widowed single mother, raising her violent son alone, finds new hope when a mysterious neighbor inserts herself into their household.', '74', 'Xavier Dolan', 'Anne Dorval', 'Antoine Olivier Pilon', 'Suzanne Clément', 'Patrick Huard', '50700', '3,492,754', 201),
 ('https://m.media-amazon.com/images/M/MV5BMjA1NTEwMDMxMF5BMl5BanBnXkFtZTgwODkzMzI0MjE@._V1_UY98_CR0,0,67,98_AL_.jpg', 'Haider', '2014', 'UA', '160 min', 'Action, Crime, Drama', '8.1', 'A young man returns to Kashmir after his father\'s disappearance to confront his uncle, whom he suspects of playing a role in his father\'s fate.', '', 'Vishal Bhardwaj', 'Shahid Kapoor', 'Tabu', 'Shraddha Kapoor', 'Kay Kay Menon', '50445', '901,610', 202),
 ('https://m.media-amazon.com/images/M/MV5BYzc5MTU4N2EtYTkyMi00NjdhLTg3NWEtMTY4OTEyMzJhZTAzXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Logan', '2017', 'A', '137 min', 'Action, Drama, Sci-Fi', '8.1', 'In a future where mutants are nearly extinct, an elderly and weary Logan leads a quiet life. But when Laura, a mutant child pursued by scientists, comes to him for help, he must get her to safety.', '77', 'James Mangold', 'Hugh Jackman', 'Patrick Stewart', 'Dafne Keen', 'Boyd Holbrook', '647884', '226,277,068', 203);
-INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
+INSERT INTO `movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
 ('https://m.media-amazon.com/images/M/MV5BMjE4NzgzNzEwMl5BMl5BanBnXkFtZTgwMTMzMDE0NjE@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Room', '2015', 'R', '118 min', 'Drama, Thriller', '8.1', 'Held captive for 7 years in an enclosed space, a woman and her young son finally gain their freedom, allowing the boy to experience the outside world for the first time.', '86', 'Lenny Abrahamson', 'Brie Larson', 'Jacob Tremblay', 'Sean Bridgers', 'Wendy Crewson', '371538', '14,677,674', 204),
 ('https://m.media-amazon.com/images/M/MV5BNGQzY2Y0MTgtMDA4OC00NjM3LWI0ZGQtNTJlM2UxZDQxZjI0XkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_UY98_CR1,0,67,98_AL_.jpg', 'Relatos salvajes', '2014', 'R', '122 min', 'Comedy, Drama, Thriller', '8.1', 'Six short stories that explore the extremities of human behavior involving people in distress.', '77', 'Damián Szifron', 'Darío Grandinetti', 'María Marull', 'Mónica Villa', 'Diego Starosta', '177059', '3,107,072', 205),
 ('https://m.media-amazon.com/images/M/MV5BZGE1MDg5M2MtNTkyZS00MTY5LTg1YzUtZTlhZmM1Y2EwNmFmXkEyXkFqcGdeQXVyNjA3OTI0MDc@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Soul', '2020', 'U', '100 min', 'Animation, Adventure, Comedy', '8.1', 'After landing the gig of a lifetime, a New York jazz pianist suddenly finds himself trapped in a strange land between Earth and the afterlife.', '83', 'Pete Docter', 'Kemp Powers', 'Jamie Foxx', 'Tina Fey', 'Graham Norton', '159171', '', 206),
@@ -360,7 +398,7 @@ INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERT
 ('https://m.media-amazon.com/images/M/MV5BNGYxZjA2M2ItYTRmNS00NzRmLWJkYzgtYTdiNGFlZDI5ZjNmXkEyXkFqcGdeQXVyNDE5MTU2MDE@._V1_UY98_CR0,0,67,98_AL_.jpg', 'Kumonosu-jô', '1957', '', '110 min', 'Drama, History', '8.1', 'A war-hardened general, egged on by his ambitious wife, works to fulfill a prophecy that he would become lord of Spider\'s Web Castle.', '', 'Akira Kurosawa', 'Toshirô Mifune', 'Minoru Chiaki', 'Isuzu Yamada', 'Takashi Shimura', '46678', '', 304),
 ('https://m.media-amazon.com/images/M/MV5BMGVhNjhjODktODgxYS00MDdhLTlkZjktYTkyNzQxMTU0ZDYxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX67_CR0,0,67,98_AL_.jpg', 'The Bridge on the River Kwai', '1957', 'PG', '161 min', 'Adventure, Drama, War', '8.1', 'British POWs are forced to build a railway bridge across the river Kwai for their Japanese captors, not knowing that the allied forces are planning to destroy it.', '87', 'David Lean', 'William Holden', 'Alec Guinness', 'Jack Hawkins', 'Sessue Hayakawa', '203463', '44,908,000', 305),
 ('https://m.media-amazon.com/images/M/MV5BY2I0MWFiZDMtNWQyYy00Njk5LTk3MDktZjZjNTNmZmVkYjkxXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX67_CR0,0,67,98_AL_.jpg', 'On the Waterfront', '1954', 'A', '108 min', 'Crime, Drama, Thriller', '8.1', 'An ex-prize fighter turned longshoreman struggles to stand up to his corrupt union bosses.', '91', 'Elia Kazan', 'Marlon Brando', 'Karl Malden', 'Lee J. Cobb', 'Rod Steiger', '142107', '9,600,000', 306);
-INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
+INSERT INTO `movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
 ('https://m.media-amazon.com/images/M/MV5BZDdkNzMwZmUtY2Q5MS00ZmM2LWJhYjItYTBjMWY0MGM4MDRjXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_UY98_CR0,0,67,98_AL_.jpg', 'Le salaire de la peur', '1953', 'U', '131 min', 'Adventure, Drama, Thriller', '8.1', 'In a decrepit South American village, four men are hired to transport an urgent nitroglycerine shipment without the equipment that would make it safe.', '85', 'Henri-Georges Clouzot', 'Yves Montand', 'Charles Vanel', 'Peter van Eyck', 'Folco Lulli', '54588', '', 307),
 ('https://m.media-amazon.com/images/M/MV5BNDUzZjlhZTYtN2E5MS00ODQ3LWI1ZjgtNzdiZmI0NTZiZTljXkEyXkFqcGdeQXVyMjI4MjA5MzA@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Ace in the Hole', '1951', 'Approved', '111 min', 'Drama, Film-Noir', '8.1', 'A frustrated former big-city journalist now stuck working for an Albuquerque newspaper exploits a story about a man trapped in a cave to rekindle his career, but the situation quickly escalates into an out-of-control circus.', '72', 'Billy Wilder', 'Kirk Douglas', 'Jan Sterling', 'Robert Arthur', 'Porter Hall', '31568', '3,969,893', 308),
 ('https://m.media-amazon.com/images/M/MV5BZmI5NTA3MjItYzdhMi00MWMxLTg3OWMtYWQyYjg5MTFmM2U0L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX67_CR0,0,67,98_AL_.jpg', 'White Heat', '1949', '', '114 min', 'Action, Crime, Drama', '8.1', 'A psychopathic criminal with a mother complex makes a daring break from prison and leads his old gang in a chemical plant payroll heist.', '', 'Raoul Walsh', 'James Cagney', 'Virginia Mayo', 'Edmond O\'Brien', 'Margaret Wycherly', '29807', '', 309),
@@ -464,7 +502,7 @@ INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERT
 ('https://m.media-amazon.com/images/M/MV5BMGM4M2Q5N2MtNThkZS00NTc1LTk1NTItNWEyZjJjNDRmNDk5XkEyXkFqcGdeQXVyMjA0MDQ0Mjc@._V1_UX67_CR0,0,67,98_AL_.jpg', 'The Princess Bride', '1987', 'U', '98 min', 'Adventure, Family, Fantasy', '8', 'While home sick in bed, a young boy\'s grandfather reads him the story of a farmboy-turned-pirate who encounters numerous obstacles, enemies and allies in his quest to be reunited with his true love.', '77', 'Rob Reiner', 'Cary Elwes', 'Mandy Patinkin', 'Robin Wright', 'Chris Sarandon', '393899', '30,857,814', 407),
 ('https://m.media-amazon.com/images/M/MV5BMzMxZjUzOGQtOTFlOS00MzliLWJhNTUtOTgyNzYzMWQ2YzhmXkEyXkFqcGdeQXVyNjQ2MjQ5NzM@._V1_UY98_CR0,0,67,98_AL_.jpg', 'Der Himmel über Berlin', '1987', 'U', '128 min', 'Drama, Fantasy, Romance', '8', 'An angel tires of overseeing human activity and wishes to become human when he falls in love with a mortal.', '79', 'Wim Wenders', 'Bruno Ganz', 'Solveig Dommartin', 'Otto Sander', 'Curt Bois', '64722', '3,333,969', 408),
 ('https://m.media-amazon.com/images/M/MV5BZmYxOTA5YTEtNDY3Ni00YTE5LWE1MTgtYjc4ZWUxNWY3ZTkxXkEyXkFqcGdeQXVyNjQ2MjQ5NzM@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Au revoir les enfants', '1987', 'U', '104 min', 'Drama, War', '8', 'A French boarding school run by priests seems to be a haven from World War II until a new student arrives. He becomes the roommate of the top student in his class. Rivals at first, the roommates form a bond and share a secret.', '88', 'Louis Malle', 'Gaspard Manesse', 'Raphael Fejtö', 'Francine Racette', 'Stanislas Carré de Malberg', '31163', '4,542,825', 409);
-INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
+INSERT INTO `movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
 ('https://m.media-amazon.com/images/M/MV5BNTg0NmI1ZGQtZTUxNC00NTgxLThjMDUtZmRlYmEzM2MwOWYwXkEyXkFqcGdeQXVyMzM4MjM0Nzg@._V1_UY98_CR1,0,67,98_AL_.jpg', 'Tenkû no shiro Rapyuta', '1986', 'U', '125 min', 'Animation, Adventure, Drama', '8', 'A young boy and a girl with a magic crystal must race against pirates and foreign agents in a search for a legendary floating castle.', '78', 'Hayao Miyazaki', 'Mayumi Tanaka', 'Keiko Yokozawa', 'Kotoe Hatsui', 'Minori Terada', '150140', '', 410),
 ('https://m.media-amazon.com/images/M/MV5BYTViNzMxZjEtZGEwNy00MDNiLWIzNGQtZDY2MjQ1OWViZjFmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX67_CR0,0,67,98_AL_.jpg', 'The Terminator', '1984', 'UA', '107 min', 'Action, Sci-Fi', '8', 'A human soldier is sent from 2029 to 1984 to stop an almost indestructible cyborg killing machine, sent from the same year, which has been programmed to execute a young woman whose unborn son is the key to humanity\'s future salvation.', '84', 'James Cameron', 'Arnold Schwarzenegger', 'Linda Hamilton', 'Michael Biehn', 'Paul Winfield', '799795', '38,400,000', 411),
 ('https://m.media-amazon.com/images/M/MV5BMzJiZDRmOWUtYjE2MS00Mjc1LTg1ZDYtNTQxYWJkZTg1OTM4XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Gandhi', '1982', 'U', '191 min', 'Biography, Drama, History', '8', 'The life of the lawyer who became the famed leader of the Indian revolts against the British rule through his philosophy of nonviolent protest.', '79', 'Richard Attenborough', 'Ben Kingsley', 'John Gielgud', 'Rohini Hattangadi', 'Roshan Seth', '217664', '52,767,889', 412),
@@ -568,7 +606,7 @@ INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERT
 ('https://m.media-amazon.com/images/M/MV5BMGFkNjNmZWMtNDdiOS00ZWM3LWE1ZTMtZDU3MGQyMzIyNzZhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX67_CR0,0,67,98_AL_.jpg', 'No Man\'s Land', '2001', 'R', '98 min', 'Comedy, Drama, War', '7.9', 'Bosnia and Herzegovina during 1993 at the time of the heaviest fighting between the two warring sides. Two soldiers from opposing sides in the conflict, Nino and Ciki, become trapped in no man\'s land, whilst a third soldier becomes a living booby trap.', '84', 'Danis Tanovic', 'Branko Djuric', 'Rene Bitorajac', 'Filip Sovagovic', 'Georges Siatidis', '44618', '1,059,830', 510),
 ('https://m.media-amazon.com/images/M/MV5BMjYzYWM4YTItZjJiMC00OTM5LTg3NDgtOGQ2Njk2ZWNhN2QwXkEyXkFqcGdeQXVyMzM4MjM0Nzg@._V1_UY98_CR0,0,67,98_AL_.jpg', 'Cowboy Bebop: Tengoku no tobira', '2001', 'U', '115 min', 'Animation, Action, Crime', '7.9', 'A terrorist explosion releases a deadly virus on the masses, and it\'s up the bounty-hunting Bebop crew to catch the cold-blooded culprit.', '61', 'Shin\'ichirô Watanabe', 'Tensai Okamura', 'Hiroyuki Okiura', 'Yoshiyuki Takei', 'Beau Billingslea', '42897', '1,000,045', 511),
 ('https://m.media-amazon.com/images/M/MV5BM2JkNGU0ZGMtZjVjNS00NjgyLWEyOWYtZmRmZGQyN2IxZjA2XkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_UX67_CR0,0,67,98_AL_.jpg', 'The Bourne Identity', '2002', 'UA', '119 min', 'Action, Mystery, Thriller', '7.9', 'A man is picked up by a fishing boat, bullet-riddled and suffering from amnesia, before racing to elude assassins and attempting to regain his memory.', '68', 'Doug Liman', 'Franka Potente', 'Matt Damon', 'Chris Cooper', 'Clive Owen', '508771', '121,661,683', 512);
-INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
+INSERT INTO `movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
 ('https://m.media-amazon.com/images/M/MV5BMTYxMDdlYjItMDVkYy00MjYzLThhMTYtYjIzZjZiODk1ZWRmXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Nueve reinas', '2000', 'R', '114 min', 'Crime, Drama, Thriller', '7.9', 'Two con artists try to swindle a stamp collector by selling him a sheet of counterfeit rare stamps (the \"nine queens\").', '80', 'Fabián Bielinsky', 'Ricardo Darín', 'Gastón Pauls', 'Graciela Tenenbaum', 'María Mercedes Villagra', '49721', '1,221,261', 513),
 ('https://m.media-amazon.com/images/M/MV5BMTQ5NTI2NTI4NF5BMl5BanBnXkFtZTcwNjk2NDA2OQ@@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Children of Men', '2006', 'A', '109 min', 'Adventure, Drama, Sci-Fi', '7.9', 'In 2027, in a chaotic world in which women have become somehow infertile, a former activist agrees to help transport a miraculously pregnant woman to a sanctuary at sea.', '84', 'Alfonso Cuarón', 'Julianne Moore', 'Clive Owen', 'Chiwetel Ejiofor', 'Michael Caine', '465113', '35,552,383', 514),
 ('https://m.media-amazon.com/images/M/MV5BMzY1ZjMwMGEtYTY1ZS00ZDllLTk0ZmUtYzA3ZTA4NmYwNGNkXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Almost Famous', '2000', 'A', '122 min', 'Adventure, Comedy, Drama', '7.9', 'A high-school boy is given the chance to write a story for Rolling Stone Magazine about an up-and-coming rock band as he accompanies them on their concert tour.', '90', 'Cameron Crowe', 'Billy Crudup', 'Patrick Fugit', 'Kate Hudson', 'Frances McDormand', '252586', '32,534,850', 515),
@@ -670,7 +708,7 @@ INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERT
 ('https://m.media-amazon.com/images/M/MV5BMTQ2OTYyNzUxOF5BMl5BanBnXkFtZTcwMzUwMDY4Mg@@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Das weiße Band - Eine deutsche Kindergeschichte', '2009', 'UA', '144 min', 'Drama, History, Mystery', '7.8', 'Strange events happen in a small village in the north of Germany during the years before World War I, which seem to be ritual punishment. Who is responsible?', '82', 'Michael Haneke', 'Christian Friedel', 'Ernst Jacobi', 'Leonie Benesch', 'Ulrich Tukur', '68715', '2,222,647', 611),
 ('https://m.media-amazon.com/images/M/MV5BMTc2Mjc0MDg3MV5BMl5BanBnXkFtZTcwMjUzMDkxMw@@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Män som hatar kvinnor', '2009', 'R', '152 min', 'Crime, Drama, Mystery', '7.8', 'A journalist is aided by a young female hacker in his search for the killer of a woman who has been dead for forty years.', '76', 'Niels Arden Oplev', 'Michael Nyqvist', 'Noomi Rapace', 'Ewa Fröling', 'Lena Endre', '208994', '10,095,170', 612),
 ('https://m.media-amazon.com/images/M/MV5BYjYzOGE1MjUtODgyMy00ZDAxLTljYTgtNzk0Njg2YWQwMTZhXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_UX67_CR0,0,67,98_AL_.jpg', 'The Trial of the Chicago 7', '2020', 'R', '129 min', 'Drama, History, Thriller', '7.8', 'The story of 7 people on trial stemming from various charges surrounding the uprising at the 1968 Democratic National Convention in Chicago, Illinois.', '77', 'Aaron Sorkin', 'Eddie Redmayne', 'Alex Sharp', 'Sacha Baron Cohen', 'Jeremy Strong', '89896', '', 613);
-INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
+INSERT INTO `movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
 ('https://m.media-amazon.com/images/M/MV5BOTNjM2Y2ZjgtMDc5NS00MDQ1LTgyNGYtYzYwMTAyNWQwYTMyXkEyXkFqcGdeQXVyMjE4NzUxNDA@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Druk', '2020', '', '117 min', 'Comedy, Drama', '7.8', 'Four friends, all high school teachers, test a theory that they will improve their lives by maintaining a constant level of alcohol in their blood.', '81', 'Thomas Vinterberg', 'Mads Mikkelsen', 'Thomas Bo Larsen', 'Magnus Millang', 'Lars Ranthe', '33931', '', 614),
 ('https://m.media-amazon.com/images/M/MV5BMTM0ODk3MjM1MV5BMl5BanBnXkFtZTcwNzc1MDIwNA@@._V1_UX67_CR0,0,67,98_AL_.jpg', 'The Fighter', '2010', 'UA', '116 min', 'Biography, Drama, Sport', '7.8', 'Based on the story of Micky Ward, a fledgling boxer who tries to escape the shadow of his more famous but troubled older boxing brother and get his own shot at greatness.', '79', 'David O. Russell', 'Mark Wahlberg', 'Christian Bale', 'Amy Adams', 'Melissa Leo', '340584', '93,617,009', 615),
 ('https://m.media-amazon.com/images/M/MV5BMTM4NzQ0OTYyOF5BMl5BanBnXkFtZTcwMDkyNjQyMg@@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Taken', '2008', 'A', '90 min', 'Action, Thriller', '7.8', 'A retired CIA agent travels across Europe and relies on his old skills to save his estranged daughter, who has been kidnapped while on a trip to Paris.', '51', 'Pierre Morel', 'Liam Neeson', 'Maggie Grace', 'Famke Janssen', 'Leland Orser', '564791', '145,000,989', 616),
@@ -774,7 +812,7 @@ INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERT
 ('https://m.media-amazon.com/images/M/MV5BOGQ4NDUyNWQtZTEyOC00OTMzLWFhYjAtNDNmYmQ2MWQyMTRmXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Stagecoach', '1939', 'Passed', '96 min', 'Adventure, Drama, Western', '7.8', 'A group of people traveling on a stagecoach find their journey complicated by the threat of Geronimo and learn something about each other in the process.', '93', 'John Ford', 'John Wayne', 'Claire Trevor', 'Andy Devine', 'John Carradine', '43621', '', 714),
 ('https://m.media-amazon.com/images/M/MV5BNjk3YzFjYTktOGY0ZS00Y2EwLTk2NTctYTI1Nzc2OWNiN2I4XkEyXkFqcGdeQXVyNzM0MTUwNTY@._V1_UX67_CR0,0,67,98_AL_.jpg', 'The Lady Vanishes', '1938', '', '96 min', 'Mystery, Thriller', '7.8', 'While travelling in continental Europe, a rich young playgirl realizes that an elderly lady seems to have disappeared from the train.', '98', 'Alfred Hitchcock', 'Margaret Lockwood', 'Michael Redgrave', 'Paul Lukas', 'May Whitty', '47400', '', 715),
 ('https://m.media-amazon.com/images/M/MV5BMmVkOTRiYmItZjE4NS00MWNjLWE0ZmMtYzg5YzFjMjMyY2RkXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Bringing Up Baby', '1938', 'Passed', '102 min', 'Comedy, Family, Romance', '7.8', 'While trying to secure a $1 million donation for his museum, a befuddled paleontologist is pursued by a flighty and often irritating heiress and her pet leopard, Baby.', '91', 'Howard Hawks', 'Katharine Hepburn', 'Cary Grant', 'Charles Ruggles', 'Walter Catlett', '55163', '', 716);
-INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
+INSERT INTO `movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
 ('https://m.media-amazon.com/images/M/MV5BOTUzMzAzMzEzNV5BMl5BanBnXkFtZTgwOTg1NTAwMjE@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Bride of Frankenstein', '1935', '', '75 min', 'Drama, Horror, Sci-Fi', '7.8', 'Mary Shelley reveals the main characters of her novel survived: Dr. Frankenstein, goaded by an even madder scientist, builds his monster a mate.', '95', 'James Whale', 'Boris Karloff', 'Elsa Lanchester', 'Colin Clive', 'Valerie Hobson', '43542', '4,360,000', 717),
 ('https://m.media-amazon.com/images/M/MV5BYmYxZGU2NWYtNzQxZS00NmEyLWIzN2YtMDk5MWM0ODc5ZTE4XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Duck Soup', '1933', '', '69 min', 'Comedy, Musical, War', '7.8', 'Rufus T. Firefly is named president/dictator of bankrupt Freedonia and declares war on neighboring Sylvania over the love of wealthy Mrs. Teasdale.', '93', 'Leo McCarey', 'Groucho Marx', 'Harpo Marx', 'Chico Marx', 'Zeppo Marx', '55581', '', 718),
 ('https://m.media-amazon.com/images/M/MV5BYmMxZTU2ZDUtM2Y1MS00ZWFmLWJlN2UtNzI0OTJiOTYzMTk3XkEyXkFqcGdeQXVyMjUxODE0MDY@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Scarface: The Shame of the Nation', '1932', 'PG', '93 min', 'Action, Crime, Drama', '7.8', 'An ambitious and nearly insane violent gangster climbs the ladder of success in the mob, but his weaknesses prove to be his downfall.', '87', 'Howard Hawks', 'Richard Rosson', 'Paul Muni', 'Ann Dvorak', 'Karen Morley', '25312', '', 719),
@@ -877,7 +915,7 @@ INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERT
 ('https://m.media-amazon.com/images/M/MV5BZmVhNWIzOTMtYmVlZC00ZDVmLWIyODEtODEzOTAxYjAwMzVlXkEyXkFqcGdeQXVyMzIwNDY4NDI@._V1_UY98_CR1,0,67,98_AL_.jpg', 'Il postino', '1994', 'U', '108 min', 'Biography, Comedy, Drama', '7.7', 'A simple Italian postman learns to love poetry while delivering mail to a famous poet, and then uses this to woo local beauty Beatrice.', '81', 'Michael Radford', 'Massimo Troisi', 'Massimo Troisi', 'Philippe Noiret', 'Maria Grazia Cucinotta', '33600', '21,848,932', 816),
 ('https://m.media-amazon.com/images/M/MV5BNzE1Njk0NmItNDhlMC00ZmFlLWI4ZTUtYTY4ZjgzNjkyMTU1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Clerks', '1994', 'R', '92 min', 'Comedy', '7.7', 'A day in the lives of two convenience clerks named Dante and Randal as they annoy customers, discuss movies, and play hockey on the store roof.', '70', 'Kevin Smith', 'Brian O\'Halloran', 'Jeff Anderson', 'Marilyn Ghigliotti', 'Lisa Spoonauer', '211450', '3,151,130', 817),
 ('https://m.media-amazon.com/images/M/MV5BZWY0ODc2NDktYmYxNS00MGZiLTk5YjktZjgwZWFhNDQ0MzNhXkEyXkFqcGdeQXVyNTI4MjkwNjA@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Short Cuts', '1993', 'R', '188 min', 'Comedy, Drama', '7.7', 'The day-to-day lives of several suburban Los Angeles residents.', '79', 'Robert Altman', 'Andie MacDowell', 'Julianne Moore', 'Tim Robbins', 'Bruce Davison', '42275', '6,110,979', 818);
-INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
+INSERT INTO `movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
 ('https://m.media-amazon.com/images/M/MV5BNDE0MWE1ZTMtOWFkMS00YjdiLTkwZTItMDljYjY3MjM0NTk5XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Philadelphia', '1993', 'UA', '125 min', 'Drama', '7.7', 'When a man with HIV is fired by his law firm because of his condition, he hires a homophobic small time lawyer as the only willing advocate for a wrongful dismissal suit.', '66', 'Jonathan Demme', 'Tom Hanks', 'Denzel Washington', 'Roberta Maxwell', 'Buzz Kilman', '224169', '77,324,422', 819),
 ('https://m.media-amazon.com/images/M/MV5BN2Y0NWRkNWItZWEwNi00MDNlLWJmZDYtNTkwYzI5Nzg4MjVjXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX67_CR0,0,67,98_AL_.jpg', 'The Muppet Christmas Carol', '1992', 'G', '85 min', 'Comedy, Drama, Family', '7.7', 'The Muppet characters tell their version of the classic tale of an old and bitter miser\'s redemption on Christmas Eve.', '64', 'Brian Henson', 'Michael Caine', 'Kermit the Frog', 'Dave Goelz', 'Miss Piggy', '50298', '27,281,507', 820),
 ('https://m.media-amazon.com/images/M/MV5BZDkzOTFmMTUtMmI2OS00MDE4LTg5YTUtODMwNDMzNmI5OGYwL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY98_CR3,0,67,98_AL_.jpg', 'Malcolm X', '1992', 'U', '202 min', 'Biography, Drama, History', '7.7', 'Biographical epic of the controversial and influential Black Nationalist leader, from his early life and career as a small-time gangster, to his ministry as a member of the Nation of Islam.', '73', 'Spike Lee', 'Denzel Washington', 'Angela Bassett', 'Delroy Lindo', 'Spike Lee', '85819', '48,169,908', 821),
@@ -982,7 +1020,7 @@ INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERT
 ('https://m.media-amazon.com/images/M/MV5BMjkyMTE1OTYwNF5BMl5BanBnXkFtZTcwMDIxODYzMw@@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Stardust', '2007', 'U', '127 min', 'Adventure, Family, Fantasy', '7.6', 'In a countryside town bordering on a magical land, a young man makes a promise to his beloved that he\'ll retrieve a fallen star by venturing into the magical realm.', '66', 'Matthew Vaughn', 'Charlie Cox', 'Claire Danes', 'Sienna Miller', 'Ian McKellen', '255036', '38,634,938', 920),
 ('https://m.media-amazon.com/images/M/MV5BMjEzMjEzNTIzOF5BMl5BanBnXkFtZTcwMTg2MjAyMw@@._V1_UY98_CR0,0,67,98_AL_.jpg', 'The Secret of Kells', '2009', '', '71 min', 'Animation, Adventure, Family', '7.6', 'A young boy in a remote medieval outpost under siege from barbarian raids is beckoned to adventure when a celebrated master illuminator arrives with an ancient book, brimming with secret wisdom and powers.', '81', 'Tomm Moore', 'Nora Twomey', 'Evan McGuire', 'Brendan Gleeson', 'Mick Lally', '31779', '686,383', 921),
 ('https://m.media-amazon.com/images/M/MV5BYjc4MjA2ZDgtOGY3YS00NDYzLTlmNTEtYWMxMzcwZjgzYWNjXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Inside Man', '2006', 'R', '129 min', 'Crime, Drama, Mystery', '7.6', 'A police detective, a bank robber, and a high-power broker enter high-stakes negotiations after the criminal\'s brilliant heist spirals into a hostage situation.', '76', 'Spike Lee', 'Denzel Washington', 'Clive Owen', 'Jodie Foster', 'Christopher Plummer', '339757', '88,513,495', 922);
-INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
+INSERT INTO `movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERTIFICATE`, `RUNTIME`, `GENRE`, `IMDB_RATING`, `OVERVIEW`, `META_SCORE`, `DIRECTOR`, `STAR1`, `STAR2`, `STAR3`, `STAR4`, `NO_OF_VOTES`, `GROSS`, `ID`) VALUES
 ('https://m.media-amazon.com/images/M/MV5BYmM2NDNiNGItMTRhMi00ZDA2LTgzOWMtZTE2ZjFhMDQ2M2U5XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Gone Baby Gone', '2007', 'R', '114 min', 'Crime, Drama, Mystery', '7.6', 'Two Boston area detectives investigate a little girl\'s kidnapping, which ultimately turns into a crisis both professionally and personally.', '72', 'Ben Affleck', 'Morgan Freeman', 'Ed Harris', 'Casey Affleck', 'Michelle Monaghan', '250590', '20,300,218', 923),
 ('https://m.media-amazon.com/images/M/MV5BOTBmZDZkNWYtODIzYi00N2Y4LWFjMmMtNmM1OGYyNGVhYzUzXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UX67_CR0,0,67,98_AL_.jpg', 'La Vie En Rose', '2007', 'PG-13', '140 min', 'Biography, Drama, Music', '7.6', 'Biopic of the iconic French singer Édith Piaf. Raised by her grandmother in a brothel, she was discovered while singing on a street corner at the age of 19. Despite her success, Piaf\'s life was filled with tragedy.', '66', 'Olivier Dahan', 'Marion Cotillard', 'Sylvie Testud', 'Pascal Greggory', 'Emmanuelle Seigner', '82781', '10,301,706', 924),
 ('https://m.media-amazon.com/images/M/MV5BMTI5MjA2Mzk2M15BMl5BanBnXkFtZTcwODY1MDUzMQ@@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Huo Yuan Jia', '2006', 'PG-13', '104 min', 'Action, Biography, Drama', '7.6', 'A biography of Chinese Martial Arts Master Huo Yuanjia, who is the founder and spiritual guru of the Jin Wu Sports Federation.', '70', 'Ronny Yu', 'Jet Li', 'Li Sun', 'Yong Dong', 'Yun Qu', '72863', '24,633,730', 925),
@@ -1051,7 +1089,7 @@ INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERT
 ('https://m.media-amazon.com/images/M/MV5BNDU1MjQ0YWMtMWQ2MS00NTdmLTg1MGItNDA5NTNkNTRhOTIyXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Midnight Express', '1978', 'A', '121 min', 'Biography, Crime, Drama', '7.6', 'Billy Hayes, an American college student, is caught smuggling drugs out of Turkey and thrown into prison.', '59', 'Alan Parker', 'Brad Davis', 'Irene Miracle', 'Bo Hopkins', 'Paolo Bonacelli', '73662', '35,000,000', 988),
 ('https://m.media-amazon.com/images/M/MV5BMjM1NjE5NjQxN15BMl5BanBnXkFtZTgwMjYzMzQxMDE@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Close Encounters of the Third Kind', '1977', 'U', '138 min', 'Drama, Sci-Fi', '7.6', 'Roy Neary, an electric lineman, watches how his quiet and ordinary daily life turns upside down after a close encounter with a UFO.', '90', 'Steven Spielberg', 'Richard Dreyfuss', 'François Truffaut', 'Teri Garr', 'Melinda Dillon', '184966', '132,088,635', 989),
 ('https://m.media-amazon.com/images/M/MV5BYzZhODNiOWYtMmNkNS00OTFhLTkzYzktYTQ4ZmNmZWMyN2ZiL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX67_CR0,0,67,98_AL_.jpg', 'The Long Goodbye', '1973', 'A', '112 min', 'Comedy, Crime, Drama', '7.6', 'Private investigator Philip Marlowe helps a friend out of a jam, but in doing so gets implicated in his wife\'s murder.', '87', 'Robert Altman', 'Elliott Gould', 'Nina van Pallandt', 'Sterling Hayden', 'Mark Rydell', '26337', '959,000', 990),
-('https://m.media-amazon.com/images/M/MV5BYjRmY2VjN2ItMzBmYy00YTRjLWFiMTgtNGZhNWJjMjk3YjZjXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Giù la testa', '1971', 'PG', '157 min', 'Drama, War, Western', '7.6', 'A low-life bandit and an I.R.A. explosives expert rebel against the government and become heroes of the Mexican Revolution.', '77', 'Sergio Leone', 'Rod Steiger', 'James Coburn', 'Romolo Valli', 'Maria Monti', '30144', '696,690', 991),
+('https://m.media-amazon.com/images/M/MV5BYjRmY2VjN2ItMzBmYy00YTRjLWFiMTgtNGZhNWJjMjk3YjZjXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Giù la testa', '1971', 'PG', '157 min', 'Drama, War, Western', '7.6', 'A low-life bandit and an I.R.A. explosives expert rebel against the government and become heroes of the Mexican Revolution.', '77', 'Sergio Leone', 'Rod Steiger', 'James Coburn', 'Romolo Valli', 'Maria Monti', '30144', '', 991),
 ('https://m.media-amazon.com/images/M/MV5BMzAyNDUwYzUtN2NlMC00ODliLWExMjgtMGMzNmYzZmUwYTg1XkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Kelly\'s Heroes', '1970', 'GP', '144 min', 'Adventure, Comedy, War', '7.6', 'A group of U.S. soldiers sneaks across enemy lines to get their hands on a secret stash of Nazi treasure.', '50', 'Brian G. Hutton', 'Clint Eastwood', 'Telly Savalas', 'Don Rickles', 'Carroll O\'Connor', '45338', '1,378,435', 992),
 ('https://m.media-amazon.com/images/M/MV5BMjAwMTExODExNl5BMl5BanBnXkFtZTgwMjM2MDgyMTE@._V1_UX67_CR0,0,67,98_AL_.jpg', 'The Jungle Book', '1967', 'U', '78 min', 'Animation, Adventure, Family', '7.6', 'Bagheera the Panther and Baloo the Bear have a difficult time trying to convince a boy to leave the jungle for human civilization.', '65', 'Wolfgang Reitherman', 'Phil Harris', 'Sebastian Cabot', 'Louis Prima', 'Bruce Reitherman', '166409', '141,843,612', 993),
 ('https://m.media-amazon.com/images/M/MV5BYTE4YWU0NjAtMjNiYi00MTNiLTgwYzctZjk0YjY5NGVhNWQwXkEyXkFqcGdeQXVyMTY5Nzc4MDY@._V1_UY98_CR0,0,67,98_AL_.jpg', 'Blowup', '1966', 'A', '111 min', 'Drama, Mystery, Thriller', '7.6', 'A fashion photographer unknowingly captures a death on film after following two lovers in a park.', '82', 'Michelangelo Antonioni', 'David Hemmings', 'Vanessa Redgrave', 'Sarah Miles', 'John Castle', '56513', '', 994),
@@ -1062,15 +1100,67 @@ INSERT INTO `1000_movies` (`POSTER_LINK`, `SERIES_TITLE`, `RELEASED_YEAR`, `CERT
 ('https://m.media-amazon.com/images/M/MV5BZTBmMjUyMjItYTM4ZS00MjAwLWEyOGYtYjMyZTUxN2I3OTMxXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX67_CR0,0,67,98_AL_.jpg', 'Lifeboat', '1944', '', '97 min', 'Drama, War', '7.6', 'Several survivors of a torpedoed merchant ship in World War II find themselves in the same lifeboat with one of the crew members of the U-boat that sank their ship.', '78', 'Alfred Hitchcock', 'Tallulah Bankhead', 'John Hodiak', 'Walter Slezak', 'William Bendix', '26471', '', 999),
 ('https://m.media-amazon.com/images/M/MV5BMTY5ODAzMTcwOF5BMl5BanBnXkFtZTcwMzYxNDYyNA@@._V1_UX67_CR0,0,67,98_AL_.jpg', 'The 39 Steps', '1935', '', '86 min', 'Crime, Mystery, Thriller', '7.6', 'A man in London tries to help a counter-espionage Agent. But when the Agent is killed, and the man stands accused, he must go on the run to save himself and stop a spy ring which is trying to steal top secret information.', '93', 'Alfred Hitchcock', 'Robert Donat', 'Madeleine Carroll', 'Lucie Mannheim', 'Godfrey Tearle', '51853', '', 1000);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `movie_genres`
+--
+
+CREATE TABLE `movie_genres` (
+  `movie_id` int(11) NOT NULL,
+  `genre_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `1000_movies`
+-- Indexes for table `genres`
 --
-ALTER TABLE `1000_movies`
+ALTER TABLE `genres`
+  ADD PRIMARY KEY (`GENRE_ID`),
+  ADD UNIQUE KEY `GENRE_NAME` (`GENRE_NAME`);
+
+--
+-- Indexes for table `movies`
+--
+ALTER TABLE `movies`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `movie_genres`
+--
+ALTER TABLE `movie_genres`
+  ADD PRIMARY KEY (`movie_id`,`genre_id`),
+  ADD KEY `genre_id` (`genre_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `genres`
+--
+ALTER TABLE `genres`
+  MODIFY `GENRE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `movies`
+--
+ALTER TABLE `movies`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1032;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `movie_genres`
+--
+ALTER TABLE `movie_genres`
+  ADD CONSTRAINT `movie_genres_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`ID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `movie_genres_ibfk_2` FOREIGN KEY (`genre_id`) REFERENCES `genres` (`GENRE_ID`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
