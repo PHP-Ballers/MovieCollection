@@ -6,11 +6,24 @@
 <header><h2>Movie Viewer</h2></header>
 
 <main>
+
+    <!--Search Form-->
+    <form action="index.php" method="get">
+        <input type="hidden" name="action" value="movie_list_manager"> <!-- Ensures that the form submits to the correct action -->
+        <input type="text" name="search_query" placeholder="Search movies..." value="<?php echo isset($_GET['search_query']) ? $_GET['search_query'] : ''; ?>">
+        <button type="submit">Search</button>
+
+    </form>
+
 <?php
 #display page links 
     echo $page_links;
 ?>
-
+    <!--     Check if there are no movies found for the search query -->
+<?php if (empty($limited_pages)): ?>
+    <p>No movies found for your search query.</p>
+<?php else: ?>
+    <!--         Movie List Table -->
     <table class="table-dark">
         <th>POSTER</th>
         <th>SERIES_TITLE</th>
@@ -33,10 +46,14 @@
                 <td><?php echo $movie['IMDB_RATING']; ?></td>
                 <td><?php echo $movie['DIRECTOR']; ?></td>
                 <td><?php echo $movie['GROSS']; ?></td>
-                <td><a href="?action=movie_viewer&id=<?php echo $movie['ID'];?>&page=<?php echo $page;?>&prev_action=<?php echo $prev_action ?>">More Info</a></td> 
+                <td><a href="?action=movie_viewer&id=<?php echo $movie['ID'];?>&page=<?php echo $page;?>&prev_action=<?php echo $prev_action ?>">More Info</a></td>
             </tr>
         <?php endforeach; ?>
     </table>
+
+<?php endif; ?>
+
+
 </main>
 
 <?php
