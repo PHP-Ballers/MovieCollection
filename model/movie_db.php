@@ -38,7 +38,7 @@ function get_movie_by_genre($genre = '*') {
     $statement->closeCursor();
 }
 
-function paginate_movie_list() {
+function paginate_movie_list($search_query = null) {
     global $db;
     global $records_per_page;
     #Initialize values for data pagination
@@ -56,9 +56,15 @@ function paginate_movie_list() {
     $offset = (int)($page - 1) * $records_per_page;
     $total_records = $db->query("SELECT COUNT(*) FROM movies")->fetchColumn();
     $total_pages = ceil($total_records / $records_per_page);
+    if ($search_query) {
+        $sql = 'SELECT * FROM movies WHERE SERIES_TITLE LIKE :search_query LIMIT :records_per_page OFFSET :offset';
+        $statement = $db->prepare($sql);
+        $statement->bindValue(':search_query', '%' . $search_query . '%', PDO::PARAM_STR); // Search for movies whose title contains the query
+    } else {
+        $sql = 'SELECT * FROM movies LIMIT :records_per_page OFFSET :offset';
+        $statement = $db->prepare($sql);
+    }
 
-    $sql = 'SELECT * FROM movies LIMIT :records_per_page OFFSET :offset';
-    $statement = $db->prepare($sql);
     $statement->bindValue(':records_per_page', $records_per_page, PDO::PARAM_INT);
     $statement->bindValue(':offset', $offset, PDO::PARAM_INT);
     $statement->execute();
@@ -67,6 +73,7 @@ function paginate_movie_list() {
 
     return $result;
 }
+
 
 function calculate_total_pages() {
     global $db;
