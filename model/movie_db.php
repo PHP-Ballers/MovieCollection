@@ -42,7 +42,6 @@ function paginate_movie_list($search_query = null) {
     global $db;
     global $records_per_page;
     #Initialize values for data pagination
-    #$records_per_page = 12; #number of movies displayed per page
     $page = filter_input(INPUT_GET, 'page');  
     if(!$page) {
         $page = filter_input(INPUT_POST, 'page'); 
@@ -51,8 +50,7 @@ function paginate_movie_list($search_query = null) {
     if (!$page) {
         $page = '1'; #initialize to 1 if there is no current page
     }
-    
-    #$records_per_page = 1; #number of movies displayed per page
+
     $offset = (int)($page - 1) * $records_per_page;
     $total_records = $db->query("SELECT COUNT(*) FROM movies")->fetchColumn();
     $total_pages = ceil($total_records / $records_per_page);
