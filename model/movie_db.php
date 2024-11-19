@@ -162,7 +162,7 @@ function add_movie_genre_relationship($movie_id) {
         $statement = $db->prepare($query);
         $statement->bindValue(':GENRE_NAME', $genre);
         $statement->execute();
-        $genre_id = $statment->fetchColumn();
+        $genre_id = $statement->fetchColumn();
         $statement->closeCursor();
         if($genre_id) {
             $query = 'INSERT INTO movie_genres (movie_id, genre_id) 
