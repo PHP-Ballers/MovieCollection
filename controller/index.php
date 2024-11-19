@@ -8,6 +8,7 @@ if ($action == NULL) {
 }
 
 if ($action == 'movie_list_manager') {
+    $search_query = filter_input(INPUT_GET, 'search_query'); // Capture the search query from the URL
     $movies = get_movie_list();
     $page = filter_input(INPUT_GET, 'page'); 
     if(!$page) {
@@ -16,6 +17,13 @@ if ($action == 'movie_list_manager') {
 
     if (!$page) {
         $page = '1'; #initialize to 1 if there is no current page
+    }
+
+    // Fetch the filtered movie list if there's a search query
+    if ($search_query) {
+        $limited_pages = paginate_movie_list($search_query); // Pass the search query to the paginate function
+    } else {
+        $limited_pages = paginate_movie_list(); // Fetch all movies if no search query is provided
     }
 
 
